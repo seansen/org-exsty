@@ -83,7 +83,7 @@
        (:cat57 (ht (:title "Choose #+Startup:")
                    (:items (list
                            (ht (:id 22)
-                               (:template "#+Startup: [{1}])
+                               (:template "#+Startup: [{1}]")
                                (:choices '(("overview" "content" "showall" "showverything"))))))))
        (:cat57 (ht (:title "Choose #+Pandoc-Options:")
                    (:items (list
