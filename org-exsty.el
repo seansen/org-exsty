@@ -80,12 +80,17 @@
                            (ht (:id 14)
                                (:template (concat "#+Setupfile: " (file-name-directory load-file-name) "styles-html/stylish_white.theme"))
                                (:choices '(())))))))
-       (:cat57 (ht (:title "Choose #+Startup:")
+       (:cat2 (ht (:title "Choose #+Startup:")
                    (:items (list
                            (ht (:id 22)
                                (:template "#+Startup: [{1}]")
                                (:choices '(("overview" "content" "showall" "showverything"))))))))
-       (:cat57 (ht (:title "Choose #+Pandoc-Options:")
+       (:cat3 (ht (:title "Choose #+Roam:")
+                   (:items (list
+                           (ht (:id 22)
+                               (:template "[{1}]")
+                               (:choices '(("#+ROAM_ALIAS:" "#+ROAM_Tags:"))))))))
+       (:cat4 (ht (:title "Choose #+Pandoc-Options:")
                    (:items (list
                            (ht (:id 21)
                                (:template (concat "#+Pandoc-Options: reference-doc:" (file-name-directory load-file-name) "styles-doc/light_blue.docx"))
@@ -95,7 +100,7 @@
                                (:choices '(())))))))))
 
 ;; The next two functions (org-exsty--ht-get* and
-;; org-exsty--ht-select-keys) are taken from the excellent package ht.el
+;; org-exsty--ht-select-keys) are taken from the package ht.el
 ;; <https://github.com/Wilfred/ht.el> and are available for ht.el >= 2.2. I
 ;; included them here just to be self-contained and because spacemacs uses an
 ;; older version of ht.el (version 2.0)
