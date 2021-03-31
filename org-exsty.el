@@ -34,51 +34,54 @@
 (require 's)
 
 
+(if (boundp 'org-exsty-directory)
+	(message "Variable defin")
+	(setq org-exsty-directory (concat user-emacs-directory "straight/repos/org-exsty")))
+
 (defvar org-exsty--all-phrases
       (ht
        (:cat1 (ht (:title "Choose #+Setupfile:")
                   (:items (list
                            (ht (:id 1)
-                               (:template (concat "#+Setupfile: " (file-name-directory load-file-name) "org-exsty/styles-html/bigblow_inline.theme"))
-                               (:choices '(())))
+                               (:template (concat "#+Setupfile: "org-exsty-directory "/styled-html/big_inline.theme"))                               (:choices '(())))
                            (ht (:id 2)
-                               (:template (concat "#+Setupfile: " (file-name-directory load-file-name) "styles-html/comfy_inline.theme"))
+                               (:template (concat "#+Setupfile: "org-exsty-directory "/styles-html/comfy_inline.theme"))
                                (:choices '(())))
                            (ht (:id 3)
-                               (:template (concat "#+Setupfile: " (file-name-directory load-file-name) "styles-html/darksun.theme"))
+                               (:template (concat "#+Setupfile: "org-exsty-directory "/styles-html/darksun.theme"))
                                (:choices '(())))
                            (ht (:id 4)
-                               (:template (concat "#+Setupfile: " (file-name-directory load-file-name) "styles-html/imagin_light.theme"))
+                               (:template (concat "#+Setupfile: "org-exsty-directory "/styles-html/imagin_light.theme"))
                                (:choices '(())))
                            (ht (:id 5)
-                               (:template (concat "#+Setupfile: " (file-name-directory load-file-name) "styles-html/readtheorg_inline.theme"))
+                               (:template (concat "#+Setupfile: "org-exsty-directory "/styles-html/readtheorg_inline.theme"))
                                (:choices '(())))
                            (ht (:id 6)
-                               (:template (concat "#+Setupfile: " (file-name-directory load-file-name) "styles-html/rethink_inline.theme"))
+                               (:template (concat "#+Setupfile: "org-exsty-directory "/styles-html/rethink_inline.theme"))
                                (:choices '(())))
                            (ht (:id 7)
-                               (:template (concat "#+Setupfile: " (file-name-directory load-file-name) "styles-html/retro_dark.theme"))
+                               (:template (concat "#+Setupfile: "org-exsty-directory "/styles-html/retro_dark.theme"))
                                (:choices '(())))
                            (ht (:id 8)
-                               (:template (concat "#+Setupfile: " (file-name-directory load-file-name) "styles-html/simple_gray.theme"))
+                               (:template (concat "#+Setupfile: "org-exsty-directory "/styles-html/simple_gray.theme"))
                                (:choices '(())))
                            (ht (:id 9)
-                               (:template (concat "#+Setupfile: " (file-name-directory load-file-name) "styles-html/simple_inline.theme"))
+                               (:template (concat "#+Setupfile: "org-exsty-directory "/styles-html/simple_inline.theme"))
                                (:choices '(())))
                            (ht (:id 10)
-                               (:template (concat "#+Setupfile: " (file-name-directory load-file-name) "styles-html/simple_white.theme"))
+                               (:template (concat "#+Setupfile: "org-exsty-directory "/styles-html/simple_white.theme"))
                                (:choices '(())))
                            (ht (:id 11)
-                               (:template (concat "#+Setupfile: " (file-name-directory load-file-name) "styles-html/simple_whiteblue.theme"))
+                               (:template (concat "#+Setupfile: "org-exsty-directory "/styles-html/simple_whiteblue.theme"))
                                (:choices '(())))
                            (ht (:id 12)
-                               (:template (concat "#+Setupfile: " (file-name-directory load-file-name) "styles-html/solarized_dark.theme"))
+                               (:template (concat "#+Setupfile: "org-exsty-directory "/styles-html/solarized_dark.theme"))
                                (:choices '(())))
                            (ht (:id 13)
-                               (:template (concat "#+Setupfile: " (file-name-directory load-file-name) "styles-html/solarized_light.theme"))
+                               (:template (concat "#+Setupfile: "org-exsty-directory "/styles-html/solarized_light.theme"))
                                (:choices '(())))
                            (ht (:id 14)
-                               (:template (concat "#+Setupfile: " (file-name-directory load-file-name) "styles-html/stylish_white.theme"))
+                               (:template (concat "#+Setupfile: "org-exsty-directory "/styles-html/stylish_white.theme"))
                                (:choices '(())))))))
        (:cat2 (ht (:title "Choose #+Startup:")
                    (:items (list
@@ -93,12 +96,14 @@
        (:cat4 (ht (:title "Choose #+Pandoc-Options:")
                    (:items (list
                            (ht (:id 21)
-                               (:template (concat "#+Pandoc-Options: reference-doc:" (file-name-directory load-file-name) "styles-doc/light_blue.docx"))
+                               (:template (concat "#+Pandoc-Options: reference-doc:"org-exsty-directory "/styles-doc/light_blue.docx"))
                                (:choices '(())))
                            (ht (:id 22)
-                               (:template (concat "#+Pandoc_Options: reference-doc:" (file-name-directory load-file-name) "syles-doc/red_black.docx"))
+                               (:template (concat "#+Pandoc_Options: reference-doc:"org-exsty-directory "/syles-doc/red_black.docx"))
                                (:choices '(())))))))))
 
+
+;;; Set Org-Exsty directory
 ;; The next two functions (org-exsty--ht-get* and
 ;; org-exsty--ht-select-keys) are taken from the package ht.el
 ;; <https://github.com/Wilfred/ht.el> and are available for ht.el >= 2.2. I
@@ -207,6 +212,7 @@ for the final key, which may return any value."
           ((equal section :acknowledgments) (setq cats '(:cat52)))
           (t (setq cats (org-exsty--gen-cats-keywords 1 57))))
     (org-exsty--insert (org-exsty--ht-select-keys phrases cats))))
+
 
 ;;;###autoload
 (defun org-exsty ()
