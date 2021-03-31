@@ -1,4 +1,4 @@
-;;; org-exsty.el --- Bypass that mental block when writing your papers. -*- lexical-binding: t -*-
+;;; org-exsty.el --- Org-Mode-Helpers -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2020-2021 Sean Avery
 
