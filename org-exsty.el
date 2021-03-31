@@ -1,6 +1,6 @@
 ;;; org-exsty.el --- Bypass that mental block when writing your papers. -*- lexical-binding: t -*-
 
-;; Copyright (C) 2020-2021 Sean Averhoff
+;; Copyright (C) 2020-2021 Sean Avery
 
 ;; Author: Sean Averhoff <seanathan@gmail.com>
 ;; Version: 0.0.1
@@ -43,7 +43,8 @@
        (:cat1 (ht (:title "Choose #+Setupfile:")
                   (:items (list
                            (ht (:id 1)
-                               (:template (concat "#+Setupfile: "org-exsty-directory "/styled-html/big_inline.theme"))                               (:choices '(())))
+                               (:template (concat "#+Setupfile: "org-exsty-directory "/styled-html/bigblow_inline.theme"))                               
+			       (:choices '(())))
                            (ht (:id 2)
                                (:template (concat "#+Setupfile: "org-exsty-directory "/styles-html/comfy_inline.theme"))
                                (:choices '(())))
